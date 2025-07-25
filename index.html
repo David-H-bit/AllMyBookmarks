@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>AllMyBookmarks</title>
+</head>
+<body>
+    <div class="bookmarkModal hidden">
+        <div class="bookmarkModal-content">
+            <label for="title">Enter title</label>
+            <input type="text" id="title">
+            <label for="url">Enter URL</label>
+            <input type="text" id="url">
+            <label for="desc">Add description</label>
+            <textarea id="desc" placeholder=""></textarea>
+            <div>
+                <button id="addBookmarkModalBtn">Add</button>
+                <button id="closeBookmarkModalBtn">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="editBookmarkModal hidden">
+        <div class="editBookmarkModal-content">
+            <label for="editTitle">Edit title</label>
+            <input type="text" id="editTitle">
+            <label for="editUrl">Edit URL</label>
+            <input type="text" id="editUrl">
+            <label for="editDesc">Edit description</label>
+            <textarea id="editDesc" placeholder=""></textarea>
+            <div>
+                <button id="saveEditedBookmark">Save</button>
+                <button id="closeEditedBookmark">Close</button>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <h1>AllMyBookmarks</h1>
+        <label for="inputMessage"></label>
+        <input type="text" name="inputMessage" id="inputMessage" data-search placeholder="🔎 search bookmark">
+        <button class="addBookmark">Add bookmark</button>
+        <div class="theme">
+            <button class="lightbtn activated-btn">☀️</button>
+            <button class="darkbtn">🌙</button>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="bookmarks-container">
+
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>
