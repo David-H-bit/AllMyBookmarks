@@ -159,12 +159,13 @@ nav input{
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     text-align: center;
     align-items: center;
     background: var(--bookmark-gradient);
     width: 20vw;
     margin-top: 30px;
+    padding: 10px;
     height: 250px;
     overflow: scroll;
 }

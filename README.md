@@ -13,9 +13,7 @@ A clean, simple bookmark manager built with vanilla HTML, CSS, and JavaScript. O
 - **Dark/Light Theme**: Switch between themes for comfortable viewing
 - **Auto Logos**: Automatically fetches website favicons using Clearbit
 - **Responsive Design**: Clean, card-based layout
-
-## Known Issues
-- **LocalStorage**: Local Storage (kind of) works but doesn't save edits and deleted bookmarks as of right now.
+- **LocalStorage**: Local storage to save all your bookmarks
 
 ## 🚀 Getting Started
 
@@ -28,6 +26,7 @@ A clean, simple bookmark manager built with vanilla HTML, CSS, and JavaScript. O
 - Click "Add bookmark" to create new bookmarks
 - Use the search bar to filter your collection
 - Click "Edit" on any bookmark to modify it
+- Click "Delete" on any bookmark to delete it
 - Theme switcher in the top navigation
 
 ## 🔧 Tech Stack

@@ -16,10 +16,11 @@ let currentlyEditingTitle = null;
 let currentlyEditingUrl = null;
 let currentlyEditingDesc = null;
 let currentlyEditingLogo = null;
+let currentlyEditingIndex = null;
 let bookmarks = loadFromLocalStorage();
 
 function saveToLocalStorage(){
-    localStorage.setItem("bookmarks", JSON.stringify(bookmarks))
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
 }
 
 function loadFromLocalStorage(){
@@ -78,13 +79,11 @@ addBookmarkModalBtn.addEventListener("click", () => {
         return;
     }
 
-    // Create bookmark object, save it, and render
     const newBookmark = { title: titleValue, url, description };
     bookmarks.push(newBookmark);
     saveToLocalStorage();
     renderBookmark(newBookmark);
 
-    // Clear input fields
     document.querySelector("#title").value = "";
     document.querySelector("#url").value = "";
     document.querySelector("#desc").value = "";
@@ -94,18 +93,10 @@ closeEditedBookmark.addEventListener("click", () => {
     editBookmarkModal.classList.toggle("hidden");
 })
 
-saveButton.addEventListener("click", ()=>{
+saveButton.addEventListener("click", () => {
     const editTitleInput = document.getElementById('editTitle').value.trim();
     const editUrlInput = document.getElementById('editUrl').value.trim();
     const editDescInput = document.getElementById('editDesc').value.trim();
-
-    try {
-        const domain = new URL(editUrlInput).hostname;
-        currentlyEditingLogo.src = `https://logo.clearbit.com/${domain}`;
-    } catch (e) {
-        alert("Invalid URL. Could not update logo.");
-    }
-
 
     if (editTitleInput.length < 3) {
         alert("Title must be at least 3 characters");
@@ -117,15 +108,30 @@ saveButton.addEventListener("click", ()=>{
         return;
     }
 
-    if (currentlyEditingTitle && currentlyEditingUrl && currentlyEditingDesc) {
+    if (currentlyEditingIndex !== null && currentlyEditingIndex !== -1) {
+        try {
+            const domain = new URL(editUrlInput).hostname;
+            const newLogo = `https://logo.clearbit.com/${domain}`;
+            currentlyEditingLogo.src = newLogo;
+            bookmarks[currentlyEditingIndex].logo = newLogo;
+        } catch (e) {
+            alert("Invalid URL. Could not update logo.");
+        }
+
+        bookmarks[currentlyEditingIndex].title = editTitleInput;
+        bookmarks[currentlyEditingIndex].url = editUrlInput;
+        bookmarks[currentlyEditingIndex].description = editDescInput;
+
         currentlyEditingTitle.textContent = editTitleInput;
         currentlyEditingUrl.textContent = editUrlInput;
         currentlyEditingUrl.href = editUrlInput;
         currentlyEditingDesc.textContent = editDescInput;
-    }
 
-    editBookmarkModal.classList.toggle("hidden");
-})
+        saveToLocalStorage();
+        editBookmarkModal.classList.toggle("hidden");
+    }
+});
+
 
 searchInput.addEventListener("input", (e) => {
     const value = e.target.value.toLowerCase();
@@ -177,6 +183,10 @@ function renderBookmark(bookmark) {
         const editTitle = document.getElementById('editTitle');
         const editUrl = document.getElementById('editUrl');
         const editDesc = document.getElementById('editDesc');
+
+        currentlyEditingIndex = bookmarks.findIndex((bm) => 
+            bm.title === bookmarkTitle.textContent && bm.url === bookmarkUrl.textContent
+        );
 
         currentlyEditingTitle = bookmarkTitle;
         currentlyEditingUrl = bookmarkUrl;
