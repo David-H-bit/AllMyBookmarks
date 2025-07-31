@@ -3,7 +3,7 @@
 A clean, simple bookmark manager built with vanilla HTML, CSS, and JavaScript. Organize your favorite websites with ease!
 
 ## 🚧 Status
-**Work in Progress** - This project is actively being developed and improved.
+**Finished** - As of right now there are no plans to add or change anything to the bookmark manager.
 
 ## ✨ Features
 
