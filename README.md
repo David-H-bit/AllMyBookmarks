@@ -1,11 +1,11 @@
-# AllMyBookmarks 🔖
+# AllMyBookmarks 
 
 A clean, simple bookmark manager built with vanilla HTML, CSS, and JavaScript. Organize your favorite websites with ease!
 
-## 🚧 Status
+## Status
 **Finished** - As of right now there are no plans to add or change anything to the bookmark manager.
 
-## ✨ Features
+## Features
 
 - **Add Bookmarks**: Save websites with title, URL, and description
 - **Search**: Quickly find bookmarks by title
@@ -15,13 +15,13 @@ A clean, simple bookmark manager built with vanilla HTML, CSS, and JavaScript. O
 - **Responsive Design**: Clean, card-based layout
 - **LocalStorage**: Local storage to save all your bookmarks
 
-## 🚀 Getting Started
+## Getting Started
 
 1. Clone or download the repository
 2. Open `prac.html` in your web browser
 3. Start adding your bookmarks!
 
-## 🎯 Usage
+## Usage
 
 - Click "Add bookmark" to create new bookmarks
 - Use the search bar to filter your collection
@@ -29,13 +29,10 @@ A clean, simple bookmark manager built with vanilla HTML, CSS, and JavaScript. O
 - Click "Delete" on any bookmark to delete it
 - Theme switcher in the top navigation
 
-## 🔧 Tech Stack
+## Tech Stack
 
 - Vanilla HTML5
 - CSS3 with custom properties
 - ES6+ JavaScript
 - Clearbit Logo API for favicons
 
----
-
-*Simple bookmarking made easy* ⭐
